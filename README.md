@@ -17,6 +17,7 @@ Node version (18 or 18+)
         for exanmple:
             header.tsx: UI File
             useHeader: business logic for the header component.
+
 ```
 
 ### Cloning the repository

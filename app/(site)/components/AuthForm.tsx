@@ -4,6 +4,7 @@ import Input from "@/app/components/inputs/Input";
 import Button from "@/app/components/Button";
 
 import useAuthForm from "./useAuthForm";
+import { isValid } from "date-fns";
 
 const AuthForm = () => {
   const {
@@ -14,8 +15,9 @@ const AuthForm = () => {
     register,
     errors,
     toggleVariant,
+    isValid,
+    isDirty,
   } = useAuthForm();
-
   return (
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div
@@ -58,7 +60,11 @@ const AuthForm = () => {
             type="password"
           />
           <div>
-            <Button disabled={isLoading} fullWidth type="submit">
+            <Button
+              disabled={isLoading || !isValid}
+              fullWidth
+              type="submit"
+            >
               {variant === "LOGIN" ? "Sign in" : "Register"}
             </Button>
           </div>
